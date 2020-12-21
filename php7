@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 # Удаляем php5
 apt-get purge 'php5*'
