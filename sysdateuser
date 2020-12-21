@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+while
+
+    sleep3;
+    echo $HOSTNAME;
+    do date +%X; 
+    echo $USER;
+    
+done

@@ -1,0 +1,34 @@
+# !/bin/bash
+
+# Удаляем php5
+apt-get purge 'php5*'
+
+
+# Перезапустим Apache2:
+service apache2 restart
+
+
+# обновим локальный кеш пакетов и обновим нашу систему:
+apt-get update && apt-get dist-upgrade
+
+
+# Для установки PHP7 для начала нам необходимо добавить репозиторий Dotdeb
+echo "deb http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list
+echo "deb-src http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list
+
+
+# Скачиваем и устанавливаем ключ
+wget https://www.dotdeb.org/dotdeb.gpg
+apt-key add dotdeb.gpg
+
+
+# Обновляем локальный кеш пакетов:
+apt-get update
+
+
+# Запускаем установку PHP7:
+apt-get install php7.0 php-pear
+
+
+# Перезапустим Apache2:
+service apache2 restart
